@@ -2,6 +2,12 @@
 
 SELECT * FROM accounts_failpaymenthistory
 
+SELECT
+    MIN(created_at),
+    MAX(created_at)
+FROM accounts_failpaymenthistory
+;
+
 -- 상품 수: 3개
 SELECT
     COUNT(DISTINCT productId)
@@ -30,3 +36,4 @@ SELECT
 FROM accounts_failpaymenthistory
 GROUP BY phone_type, productId
 ;
+

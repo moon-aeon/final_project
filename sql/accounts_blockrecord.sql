@@ -6,6 +6,13 @@
 select *
 from accounts_blockrecord;
 
+SELECT
+    MIN(created_at),
+    MAX(created_at)
+FROM accounts_blockrecord
+;
+
+
 SELECT DISTINCT
     user_id,
     block_user_id

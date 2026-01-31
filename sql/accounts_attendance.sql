@@ -7,6 +7,8 @@
     -- 주말/주중 평균 출석 수
     -- 
 
+SELECT * FROM accounts_attendance;
+
 -- 유저 수: 349,637명
 SELECT COUNT(DISTINCT user_id) AS user_count
 FROM accounts_attendance

@@ -3,6 +3,13 @@
 SELECT * FROM hackle_events;
 SELECT COUNT(*) FROM hackle_events;
 
+-- 집계 기간: 2023-07-18 00:00:00 ~ 2023-08-10 23:59:59
+SELECT
+    MIN(event_datetime),
+    MAX(event_datetime)
+FROM hackle_events
+;
+
 -- event_key: 44개
 SELECT COUNT(DISTINCT event_key) FROM hackle_events;
 
@@ -13,6 +20,7 @@ SELECT COUNT(DISTINCT event_id) FROM hackle_events;
 -- sesion_id: 고유값 253,616개 
 -- event_key랑 같지도 않고 이벤트마다 생성되지도 않는 id, 도대체 무엇인가?
 SELECT COUNT(DISTINCT session_id) FROM hackle_events;
+
 
 SELECT COUNT(DISTINCT id) FROM hackle_events;
 
