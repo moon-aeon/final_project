@@ -24,6 +24,14 @@ GROUP BY DATE_FORMAT(`created_at`, '%Y-%m')
 ORDER BY ym;
 
 SELECT
+  DATE_FORMAT(`created_at`, '%Y-%m-%d') AS ym,
+  COUNT(*) AS question_cnt
+FROM `polls_question`
+GROUP BY DATE_FORMAT(`created_at`, '%Y-%m-%d')
+ORDER BY ym;
+
+
+SELECT
   DATE(`created_at`) AS vote_date,
   COUNT(*) AS vote_cnt
 FROM `accounts_userquestionrecord`
@@ -39,3 +47,8 @@ FROM `polls_question`
 WHERE `created_at` BETWEEN '2023-05-01' AND '2023-05-31'
 GROUP BY DATE(`created_at`)
 ORDER BY question_cnt DESC;
+
+SELECT
+  MIN(created_at) AS min_created_at,
+  MAX(created_at) AS max_created_at
+FROM polls_question; 

@@ -14,7 +14,8 @@ ORDER BY cnt DESC;
 
 -- 기타 이유 > 함계 할 친구가 없어서 > 재밌는 질문이 없어서 > 버그가 너무 많아서 > 구독료가 너무 비싸서 > admin > test > 갸타
 
-SELECT MIN(`created_at`), MAX(`created_at`) FROM `accounts_userwithdraw`;
+SELECT MIN(`created_at`), MAX(`created_at`) 
+FROM `accounts_userwithdraw`;
 
 -- MIN: 2023-03-29 13:22:12
 -- MAX: 2024-05-09 08:49:06

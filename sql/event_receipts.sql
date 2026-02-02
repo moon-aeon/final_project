@@ -22,3 +22,5 @@ FROM `event_receipts`
 GROUP BY DATE_FORMAT(`created_at`, '%Y-%m')
 ORDER BY participation_cnt DESC;
 
+SELECT MIN(`created_at`), MAX(`created_at`) 
+FROM `event_receipts`;
