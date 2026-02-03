@@ -61,6 +61,10 @@ GROUP BY `question_id`
 ORDER BY vote_rate_pct DESC;
 
 
+SELECT
+  MIN(created_at) AS min_created_at,
+  MAX(created_at) AS max_created_at
+FROM polls_questionpiece;
 
 
 
