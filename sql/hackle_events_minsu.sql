@@ -41,5 +41,14 @@ SELECT
     he.event_key,
     COUNT(he.question_id)
 FROM hackle_events AS he
-GROUP BY he.event_key
+GROUP BY he.event_key;
+
+SELECT
+    YEAR(event_datetime),
+    COUNT(event_key) AS signup_count
+FROM hackle_events
+WHERE event_key = 'complete_signup'
+GROUP BY YEAR(event_datetime)
 ;
+
+DESCRIBE hackle_events;
