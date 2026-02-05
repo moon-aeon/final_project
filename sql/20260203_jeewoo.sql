@@ -59,7 +59,33 @@ WHERE
 GROUP BY 
     U.gender;
 
+-- 1-3. 여자들의 포인트가 무료일까, 유료일까 
+-- 포인트 발생 원인(액션)별 분석 
+SELECT 
+    U.gender,
+    -- 1. 투표 활동 액션 (user_question_record_id가 들어있는 기록들)
+    SUM(CASE WHEN PH.user_question_record_id IS NOT NULL THEN PH.delta_point ELSE 0 END) AS vote_points,
+    -- 2. 비활동 액션 (이벤트, 보상 등 ID가 비어있는 기록들)
+    SUM(CASE WHEN PH.user_question_record_id IS NULL THEN PH.delta_point ELSE 0 END) AS other_points,
+    -- 3. 전체 합계 (검증용)
+    SUM(PH.delta_point) AS total_points
+FROM 
+    accounts_user U
+JOIN 
+    accounts_pointhistory PH ON U.id = PH.user_id
+GROUP BY 
+    U.gender;
 
+-- 멘토님이 주신 접점이 없는 것들을 붙였을때 붙는지 Y, N 비율로 체크 
+/*select CASE WHEN U.id not null then 'Y' else 'N' end as check_yn, count(*)
+from table A  as A 
+left join table B as B on A.key = B.key 
+group by 1
+;*/
+
+/*Key를 찾아야 하잖아요? 1. 테이블이 어떻게 쌓였는지 확인하고 2. 나중에 테이블을 조인하게 되면 어떤 기준으로 조인을 할지 
+select count(*) from tableA --100
+select count(*) FROM (SELECT DISTINC ColumnB, Column C FROM TABLEA)--100 / 70 */
 
 -- 2. 기기 점유율 분석 (결제 기록이 있는 유저 중심 - phone_type 활용)
 -- I: iOS, A: Android
