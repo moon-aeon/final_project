@@ -115,3 +115,7 @@ SELECT ban_status, COUNT(*)
 FROM accounts_user
 GROUP BY ban_status
 ;
+
+SELECT MIN(created_at)
+FROM accounts_user
+;
