@@ -33,3 +33,7 @@ GROUP BY reason
 SELECT MAX(created_at)
 FROM accounts_timelinereport
 ;
+
+SELECT MIN(created_at)
+FROM accounts_timelinereport
+;

@@ -52,3 +52,14 @@ FROM accounts_school
 ORDER BY student_count
 LIMIT 5
 ;
+
+SELECT
+  school_type,
+  SUM(student_count) AS total_students,
+  ROUND(
+    100.0 * SUM(student_count) /
+    SUM(SUM(student_count)) OVER (),
+  2) AS ratio_pct
+FROM accounts_school
+GROUP BY school_type
+;

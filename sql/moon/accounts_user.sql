@@ -123,3 +123,22 @@ WHERE created_at >= '2023-05-01'
   AND created_at <  '2023-06-01'
 ORDER BY (pending_chat + pending_votes) DESC
 LIMIT 20;
+
+SELECT
+  DATE(created_at) AS signup_date,
+  COUNT(*) AS signup_users
+FROM accounts_user
+WHERE created_at >= '2023-05-01'
+  AND created_at <  '2023-06-01'
+GROUP BY signup_date
+ORDER BY signup_date;
+
+SELECT
+  DATE(created_at) AS signup_date,
+  COUNT(*) AS signup_users
+FROM accounts_user
+WHERE created_at >= '2023-05-01'
+  AND created_at <  '2023-06-01'
+GROUP BY signup_date
+ORDER BY signup_date
+;
