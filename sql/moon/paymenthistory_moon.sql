@@ -344,7 +344,7 @@ SELECT
     q.ym,
     q.question_cnt,
     u.user_cnt,
-    (q.question_cnt * 1.0 / u.user_cnt) AS questions_per_user
+    (q.question_cn t * 1.0 / u.user_cnt) AS questions_per_user
 FROM monthly_questions q
 LEFT JOIN monthly_users u
 ON q.ym = u.ym
